@@ -15,9 +15,10 @@ class Calculator extends Component {
 
   submitNum = () => {
     const newSum = parseInt(this.state.num1) + parseInt(this.state.num2);
+    // why did this require parseInt?
     this.setState({ sum: newSum });
   }
-
+// separate functions for subtract/multiply/divide? If/else for choosing which ones to use?
   render() {
     return (
       <div className="Container">
