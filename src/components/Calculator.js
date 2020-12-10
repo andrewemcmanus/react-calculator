@@ -13,8 +13,9 @@ class Calculator extends Component {
     this.setState({ [num]: e.target.value});
   }
 
-  submitNum = (e, num) => {
-
+  submitNum = () => {
+    const newSum = parseInt(this.state.num1) + parseInt(this.state.num2);
+    this.setState({ sum: newSum });
   }
 
   render() {
@@ -25,8 +26,8 @@ class Calculator extends Component {
           <input type="number" name="num1" placeholder="Enter your first number" value={this.state.num1} onChange={ (e) => { this.setNum(e, 'num1') }} />
           <span>+</span>
           <input type="number" name="num2" placeholder="Enter your first number" value={this.state.num2} onChange={ (e) => { this.setNum(e, 'num2' )}}/>
-          <button type="submit" value={num1 + num2}>=</button>
-          <h3>Addition results go here!</h3>
+        <button onClick={this.submitNum}>=</button>
+          <h3>{this.state.sum}</h3>
         </div>
       </div>
     )
